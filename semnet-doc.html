@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-GB" xml:lang="en-GB" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>SemNet: Documentation</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="keywords" content="semantic network, associative network, crawler, scraper" />
+        <meta name="description" content="Building of domain-specific semantic networks from webpages" /> 
+        <link rel="stylesheet" href="style.css" type="text/css" />
+        <link rel="stylesheet" href="highlighter.css" type="text/css" />
+        <!--[if lt IE 9]>
+          <link rel="stylesheet" href="ie-fix.css" type="text/css" />
+        <![endif]-->
+    </head>
+    <body class="semnet">
+        <!--[if lt IE 9]>
+          <div id="ie-warning">It seems that you are using Internet Explorer. For optimal viewing experience, use an internet browser. Choose one at <a href="http://browserchoice.eu" title="Browser Choice" rel="external">browserchoice.eu</a>.</div>
+        <![endif]-->
+        <div id="header">
+          <div id="semnet-header" class="primary header-box">
+            <ul id="semnet-nav">
+              <li><a href="index.html" title="Introduction to SemNet">About</a></li>
+              <li><a class="active" href="semnet-doc.html" title="Documentation of SemNet's fundamentals">Documentation</a></li>
+              <li><a href="semnet-usage.html" title="Usage instructions for SemNet">Usage</a></li>
+              <li><a href="semnet-download.html" title="SemNet binaries and sources">Download</a></li>
+              <li><a href="semnet-thesis.html" title="Bachelor's thesis behind SemNet">Thesis</a></li>
+            </ul>
+            <h1 class="header-text"><a href="index.html" title="Introduction to SemNet">SemNet</a></h1>
+            <h2 class="header-sub">Semantic network building toolset</h2>
+            <h3 class="header-section">Documentation</h3>
+            <ul class="inpage-nav">
+              <li><a href="#pop" title="Documentation for Piped object processor">#pop</a></li>
+              <li><a href="#crawler" title="Documentation for SemNet's HTML crawler">#crawler</a></li>
+              <li><a href="#scrapers" title="Documentation for SemNet's scrapers">#scrapers</a></li>
+            </ul>
+          </div>
+          <div id="artnet-header" class="secondary header-box">
+            <ul id="artnet-nav">
+              <li><a href="artnet-about.html" title="Characteristics of ArtNet and its relation to SemNet">About</a></li>
+              <li><a href="artnet-data.html" title="RDF files of the collected data">Data</a></li>
+              <li><a href="artnet-usage.html" title="Instructions for querying using built-in query tool">Usage</a></li>
+            </ul>
+            <span class="header-text"><a href="artnet-about.html" title="Characteristics of ArtNet and its relation to SemNet">ArtNet</a></span>
+            <span class="header-sub">Semantic network of artworks</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="content">
+          <p>This section documents the fundamentals of SemNet and guides through the steps of creating custom configurations. SemNet is also documented in <a href="doc/index.html" title="API reference of SemNet">Javadoc</a> and in <a href="files/thesis.pdf#page=20" title="Chapter in the thesis about SemNet">the thesis</a>. For usage instructions, see <a href="semnet-usage.html" title="Usage instructions for SemNet">Usage</a>.</p>
+          <p>SemNet is the name for a&nbsp;group of processors for the PipedObjectProcessor, the underlying data processing framework. These processors were designed to serve the purpose of SemNet &ndash; crawling the web (HTMLCrawler), extracting information (Scrapers), optionally mapping terms between vocabularies (StatementMapper) and persisting the information (SesameWriter).</p>
+          <a name="pop"></a>
+          <h4 id="pop"><a class="paralink" href="#pop" title="Documentation for Piped object processor">Piped object processor</a></h4>
+          <div class="header-links">
+            <div class="header-link"><a href="pop/javadoc/index.html" title="API reference of Piped object processor">Javadoc</a></div><!--
+         --><div class="header-link"><a href="files/thesis.pdf#page=21" title="Chapter in the thesis about Piped object processor">Thesis</a></div>
+          </div>
+          <p>The main reason for using a&nbsp;framework like POP is the flexibility it provides. The idea of a&nbsp;processing chain makes it possible to easily adjust the way the data is acquired, processed and persisted without affecting other processing steps.</p>
+          <p>The main entry point for processing is the JobRunner class, which executes processing jobs. A&nbsp;processing job is a&nbsp;configuration of processors.</p>
+          <div class="note">Note that all paths in this page are relative to the <span class="mono">sample</span> directory of the archive <a href="semnet-download.html#semnet-bin" title="SemNet binaries">semnet_artnet_conf.zip</a> and all configuration files from <span class="mono">sample/artnet</span> can be seen on the <a href="artnet-about.html#configuration" title="Configuration files of ArtNet">ArtNet: About</a> page.</div>
+          <p>
+          The following snippet of code shows a&nbsp;relevant part of a&nbsp;processing job definition (<span class="mono"><a href="files/artnet/job.xml" title="Processing job of ArtNet">artnet/job.xml</a></span>):</p>
+          
+          <!-- ############### SNIPPET START ###############-->
+          
+          <div class="xml code snippet"><span class="sc3"><span class="re1">&lt;processorChain<span class="re2">&gt;</span></span></span><br />
+&nbsp; <span class="sc3"><span class="re1">&lt;processor</span> <span class="re0">conf</span>=<span class="st0">&quot;crawler.xml&quot;</span> <span class="re0">bootstrap</span>=<span class="st0">&quot;bootstrap.list&quot;</span><span class="re2">&gt;</span></span>xsmeral.semnet.crawler.HTMLCrawler<span class="sc3"><span class="re1">&lt;/processor<span class="re2">&gt;</span></span></span><br />
+&nbsp; <span class="sc3"><span class="re1">&lt;processor<span class="re2">&gt;</span></span></span>xsmeral.semnet.scraper.ScraperWrapper<span class="sc3"><span class="re1">&lt;/processor<span class="re2">&gt;</span></span></span><br />
+&nbsp; <span class="sc3"><span class="re1">&lt;processor</span> <span class="re0">mapping</span>=<span class="st0">&quot;wn_map.xml&quot;</span><span class="re2">&gt;</span></span>xsmeral.semnet.mapper.StatementMapper<span class="sc3"><span class="re1">&lt;/processor<span class="re2">&gt;</span></span></span><br />
+&nbsp; <span class="sc3"><span class="re1">&lt;processor</span> <span class="re0">conf</span>=<span class="st0">&quot;sesame.properties&quot;</span> <span class="re0">bootstrap</span>=<span class="st0">&quot;wn_as_class_hierarchy.rdf,wordnet-hyponym.rdf&quot;</span><span class="re2">&gt;</span></span>xsmeral.semnet.sink.SesameWriter<span class="sc3"><span class="re1">&lt;/processor<span class="re2">&gt;</span></span></span><br />
+<span class="sc3"><span class="re1">&lt;/processorChain<span class="re2">&gt;</span></span></span></div>
+
+          <!-- ############### SNIPPET END ###############-->
+          <p>
+          The order of processors determines the flow of objects through the chain &ndash; they flow top to bottom. The processors are selected using their fully-qualified class name and the corresponding class file must be in the classpath during runtime. The processors can take parameters (which act like constructor arguments), in which case these are documented in Javadoc of the respective processor, in section "Initialization parameters". An example of this might be the <a href="doc/xsmeral/semnet/crawler/HTMLCrawler.html" class="mono" title="API reference of SemNet's HTML crawler">HTMLCrawler</a>, which takes the <span class="mono">conf</span> and <span class="mono">bootstrap</span> parameters.
+          </p>
+          <a name="crawler"></a>
+          <h4 id="crawler"><a class="paralink" href="#crawler" title="Documentation for SemNet's HTML crawler">Crawler</a></h4>
+          <div class="header-links">
+            <div class="header-link"><a href="doc/xsmeral/semnet/crawler/HTMLCrawler.html" title="API reference of SemNet's HTML crawler">Javadoc</a></div><!--
+         --><div class="header-link"><a href="files/thesis.pdf#page=27" title="Chapter in the thesis about SemNet's HTML crawler">Thesis</a></div>
+          </div>
+          <p>First processor in ArtNet's job is the HTMLCrawler. It is a&nbsp;web robot which crawls hosts according to predefined rules. In the data model of the crawler, these rules are represented by the <a href="doc/xsmeral/semnet/crawler/model/CrawlerConfiguration.html" class="mono" title="API reference of crawler configuration">CrawlerConfiguration</a> class. An example of the configuration is the <a href="files/artnet/crawler.xml" class="mono" title="Crawler configuration file for ArtNet">artnet/crawler.xml</a> file. It defines database connection parameters (for the crawler's URL frontier), several optional crawling parameters and a&nbsp;collection of host definitions.</p>
+          <p>
+          The host definition is represented by the HostDescriptor class. This is an example of definition of one host from the crawler configuration: <!-- TODO: FINISH THIS 
+          Host has source and entity URLs, URLs are patterns and have update frequencies
+          -->
+          </p>
+          
+          <!-- ############### SNIPPET START ###############-->
+          <div class="snippet">
+          <div class="long xml code" id="crawler-host"><a class="code-fold expand" href="#crawler-host" title="Expand the view to show full code">Expand</a>
+          <span class="sc3"><span class="re1">&lt;host<span class="re2">&gt;</span></span></span><br />
+&nbsp; <span class="sc3"><span class="re1">&lt;baseURL<span class="re2">&gt;</span></span></span>http://www.csfd.cz/<span class="sc3"><span class="re1">&lt;/baseURL<span class="re2">&gt;</span></span></span><br />
+&nbsp; <span class="sc3"><span class="re1">&lt;name<span class="re2">&gt;</span></span></span>CSFD.cz<span class="sc3"><span class="re1">&lt;/name<span class="re2">&gt;</span></span></span><br />
+&nbsp; <span class="sc3"><span class="re1">&lt;charset<span class="re2">&gt;</span></span></span>UTF-8<span class="sc3"><span class="re1">&lt;/charset<span class="re2">&gt;</span></span></span><br />
+&nbsp; <span class="sc3"><span class="re1">&lt;crawlDelay<span class="re2">&gt;</span></span></span>1500<span class="sc3"><span class="re1">&lt;/crawlDelay<span class="re2">&gt;</span></span></span><br />
+&nbsp; <span class="sc3"><span class="re1">&lt;sourceFirst<span class="re2">&gt;</span></span></span>true<span class="sc3"><span class="re1">&lt;/sourceFirst<span class="re2">&gt;</span></span></span><br />
+&nbsp; <span class="sc3"><span class="re1">&lt;source<span class="re2">&gt;</span></span></span><br />
+&nbsp; &nbsp; <span class="sc3"><span class="re1">&lt;pattern</span> <span class="re0">update</span>=<span class="st0">&quot;1&quot;</span><span class="re2">&gt;</span></span>/kino/?<span class="sc3"><span class="re1">&lt;/pattern<span class="re2">&gt;</span></span></span><br />
+&nbsp; &nbsp; <span class="sc3"><span class="re1">&lt;pattern</span> <span class="re0">update</span>=<span class="st0">&quot;1&quot;</span><span class="re2">&gt;</span></span>/tvurci/?<span class="sc3"><span class="re1">&lt;/pattern<span class="re2">&gt;</span></span></span><br />
+&nbsp; &nbsp; <span class="sc3"><span class="re1">&lt;pattern</span> <span class="re0">update</span>=<span class="st0">&quot;60&quot;</span><span class="re2">&gt;</span></span>/tvurci/.+<span class="sc3"><span class="re1">&lt;/pattern<span class="re2">&gt;</span></span></span><br />
+&nbsp; <span class="sc3"><span class="re1">&lt;/source<span class="re2">&gt;</span></span></span><br />
+&nbsp; <span class="sc3"><span class="re1">&lt;entities<span class="re2">&gt;</span></span></span><br />
+&nbsp; &nbsp; <span class="sc3"><span class="re1">&lt;entity</span> <span class="re0">weight</span>=<span class="st0">&quot;3&quot;</span><span class="re2">&gt;</span></span><br />
+&nbsp; &nbsp; &nbsp; <span class="sc3"><span class="re1">&lt;pattern</span> <span class="re0">update</span>=<span class="st0">&quot;365&quot;</span><span class="re2">&gt;</span></span>/film/[^/]+/?<span class="sc3"><span class="re1">&lt;/pattern<span class="re2">&gt;</span></span></span><br />
+&nbsp; &nbsp; &nbsp; <span class="sc3"><span class="re1">&lt;scraper<span class="re2">&gt;</span></span></span>xsmeral.artnet.scraper.CSFDScraper$Film<span class="sc3"><span class="re1">&lt;/scraper<span class="re2">&gt;</span></span></span><br />
+&nbsp; &nbsp; <span class="sc3"><span class="re1">&lt;/entity<span class="re2">&gt;</span></span></span><br />
+&nbsp; &nbsp; <span class="sc3"><span class="re1">&lt;entity</span> <span class="re0">weight</span>=<span class="st0">&quot;2&quot;</span><span class="re2">&gt;</span></span><br />
+&nbsp; &nbsp; &nbsp; <span class="sc3"><span class="re1">&lt;pattern</span> <span class="re0">update</span>=<span class="st0">&quot;365&quot;</span><span class="re2">&gt;</span></span>/tvurce/[^/]+/?<span class="sc3"><span class="re1">&lt;/pattern<span class="re2">&gt;</span></span></span><br />
+&nbsp; &nbsp; &nbsp; <span class="sc3"><span class="re1">&lt;scraper<span class="re2">&gt;</span></span></span>xsmeral.artnet.scraper.CSFDScraper$Creator<span class="sc3"><span class="re1">&lt;/scraper<span class="re2">&gt;</span></span></span><br />
+&nbsp; &nbsp; <span class="sc3"><span class="re1">&lt;/entity<span class="re2">&gt;</span></span></span><br />
+&nbsp; <span class="sc3"><span class="re1">&lt;/entities<span class="re2">&gt;</span></span></span><br />
+<span class="sc3"><span class="re1">&lt;/host<span class="re2">&gt;</span></span></span>
+<a class="code-fold shrink" href="#crawler-host-after" title="Shrink the view">Shrink</a>
+</div>
+<a name="crawler-host-after"></a>
+          </div>
+          <p>The first part contains host-specific settings, like its base URL, a&nbsp;name, character encoding used on pages of the host, the minimal time delay (in milliseconds) between two requests to the host and an option to visit source URLs first in every crawling session.</p>
+          <p>The operation of the crawler can be simplified as follows: </p>
+          <ol>
+            <li>Get URL (from the frontier or bootstrap list) and download the page.</li>
+            <li>Search for links and store those matching any of defined patterns.</li>
+            <li>If the URL is an entity URL, pass the page to scrapers.</li>
+          </ol>
+          <p>Next part of the code contains URL patterns of <em>source</em> pages, which are pages that are not <em>entity</em> pages (will not be scraped), but contain links to other entity pages.</p>
+          <div class="xml code snippet">
+<span class="sc3"><span class="re1">&lt;source<span class="re2">&gt;</span></span></span><br />
+&nbsp; <span class="sc3"><span class="re1">&lt;pattern</span> <span class="re0">update</span>=<span class="st0">&quot;1&quot;</span><span class="re2">&gt;</span></span>/kino/?<span class="sc3"><span class="re1">&lt;/pattern<span class="re2">&gt;</span></span></span><br />
+&nbsp; <span class="sc3"><span class="re1">&lt;pattern</span> <span class="re0">update</span>=<span class="st0">&quot;1&quot;</span><span class="re2">&gt;</span></span>/tvurci/?<span class="sc3"><span class="re1">&lt;/pattern<span class="re2">&gt;</span></span></span><br />
+&nbsp; <span class="sc3"><span class="re1">&lt;pattern</span> <span class="re0">update</span>=<span class="st0">&quot;60&quot;</span><span class="re2">&gt;</span></span>/tvurci/.+<span class="sc3"><span class="re1">&lt;/pattern<span class="re2">&gt;</span></span></span><br />
+<span class="sc3"><span class="re1">&lt;/source<span class="re2">&gt;</span></span></span>
+          </div>
+          <p>The patterns are regular expressions matching URLs which are relative to the base URL. The last part of a host definition in the crawler configuration contains definitions of entity pages.</p>
+          <div class="xml code snippet">
+          <span class="sc3"><span class="re1">&lt;entity</span> <span class="re0">weight</span>=<span class="st0">&quot;3&quot;</span><span class="re2">&gt;</span></span><br />
+&nbsp; <span class="sc3"><span class="re1">&lt;pattern</span> <span class="re0">update</span>=<span class="st0">&quot;365&quot;</span><span class="re2">&gt;</span></span>/film/[^/]+/?<span class="sc3"><span class="re1">&lt;/pattern<span class="re2">&gt;</span></span></span><br />
+&nbsp; <span class="sc3"><span class="re1">&lt;scraper<span class="re2">&gt;</span></span></span>xsmeral.artnet.scraper.CSFDScraper$Film<span class="sc3"><span class="re1">&lt;/scraper<span class="re2">&gt;</span></span></span><br />
+<span class="sc3"><span class="re1">&lt;/entity<span class="re2">&gt;</span></span></span>
+          </div>
+          <p>Each entity has a <span class="mono">weight</span> option, which defines the importance of this entity in relation to other entities, affecting the order and frequency of visiting during a crawling session. For example, if the crawler is configured with two entities &ndash; A with a weight of 2 and B the weight of 3, and visits 100 pages in a crawling session, 40 pages of A and 60 pages of B would be visited (and scraped).</p>
+          <p>The <span class="mono">pattern</span> is a regular expression matching a URL, relative to the base URL. The <span class="mono">update</span> parameter specifies how often should this page be visited and scraped again (value is in days). The <span class="mono">scraper</span> node specifies the scraper for this entity. Multiple <span class="mono">scraper</span> nodes can be specified.</p>
+          <!-- ############### SNIPPET END ###############-->
+          <a name="scrapers"></a>
+          <h4 id="scrapers"><a class="paralink" href="#scrapers" title="Documentation for SemNet's scrapers">Scrapers</a></h4>
+          <div class="header-links">
+            <div class="header-link"><a href="doc/xsmeral/semnet/scraper/package-summary.html" title="API reference of SemNet's HTML scraper classes">Javadoc</a></div><!--
+         --><div class="header-link"><a href="files/thesis.pdf#page=32" title="Chapter in the thesis about SemNet's scrapers">Thesis</a></div>
+          </div>
+          <p>
+          Scrapers are an inseparable part of the crawler, yet they exist as a separate module, in the name of modularity and lower complexity of individual components. They perform the core operation in the process of semantic network building &ndash; the transformation of structure from HTML code to RDF statements. The scrapers in SemNet are implementations of the class <span class="mono"><a href="doc/xsmeral/semnet/scraper/AbstractScraper.html">AbstractScraper</a></span>. They receive an <span class="mono"><a href="doc/xsmeral/semnet/crawler/model/EntityDocument.html">EntityDocument</a></span> and output <span class="mono">Statement</span>s. The <span class="mono">AbstractScraper</span> offers all necessary methods. 
+          </p>
+          <p>
+          Since each entity may have multiple scrapers defined and each host might have multiple entities (and multiple hosts may be defined in the configuration), the class <span class="mono"><a href="doc/xsmeral/semnet/scraper/ScraperWrapper.html">ScraperWrapper</a></span> is used as a "router", dispatching <span class="mono">EntityDocument</span>s to scrapers based on URL patterns.
+          </p>
+          <p>Examples of scrapers can be seen on the <a href="artnet-about.html#scrapers" title="Characteristics of ArtNet and its relation to SemNet">ArtNet: About</a> page.</p>
+          <!-- 
+          TOP-DOWN
+           - Crawler, explain schema
+           - Scraper creation... ?
+           - mapper, schema, example
+           
+           - host management
+           - running/stopping
+          --> 
+          <p>
+          <span class="construction">This page is still under construction. <br />Additional content will be available soon.</span>
+          </p>
+        </div>
+        <div id="footer">
+          smeral(at)mail.muni.cz<br />
+          Ron Šmeral<br />
+          2011
+        </div>
+    </body>
+</html>

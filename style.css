@@ -1,0 +1,613 @@
+body {
+  margin: 0;
+}
+
+#ie-warning {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  padding: 10px 0;
+  margin: 0;
+  margin-bottom: 20px;
+  color: white;
+  background-color: black;
+}
+
+#ie-warning a {
+  color: white;
+  text-decoration: underline;
+}
+
+#header {
+  width: 900px;
+  margin: 10px auto 15px auto;
+  text-align: right;
+}
+
+#header ul {
+  list-style-type: none;
+  font-family: Arial Narrow, Arial, sans-serif;
+  font-stretch: condensed;
+  font-weight: 500;
+  font-size: 13pt;
+  line-height: 1em;
+  text-transform: uppercase;
+  width: 142px;
+  margin: 0;
+  display: inline-block;
+  vertical-align: top;
+}
+
+#semnet-nav {
+  float: left;
+  text-align: right;
+  padding: 0 5px 0 0;
+  border-right: solid 3px;
+}
+
+#artnet-nav {
+  float: right;
+  text-align: left;
+  padding: 0 0 0 5px;
+  border-left: solid 3px;
+}
+
+#semnet-header {
+  float: left;
+}
+
+#semnet-header .header-text {
+  padding-left: 10px;
+}
+
+#artnet-header {
+  /*float: right;*/
+}
+
+#artnet-header .header-text {
+  padding-right: 10px;
+}
+
+#semnet-header .header-sub {
+  text-align: right;
+}
+
+#artnet-header .header-sub {
+  text-align: left;
+}
+
+#semnet-header .header-section {
+  text-align: right;
+}
+
+#artnet-header .header-section {
+  text-align: left;
+}
+
+.header-box {
+  display: inline-block;
+}
+
+.header-text {
+  font-family: Arial Black, Arial, sans-serif;
+  font-weight: 900;
+  font-size: 50pt;
+  letter-spacing: -1pt;
+  margin: 0;
+  padding: 0;
+  line-height: 0.9em;
+  display: inline-block;
+}
+
+.header-sub {
+  font-family: Arial Narrow, Arial, sans-serif;
+  font-stretch: condensed;
+  font-weight: 500;
+  font-size: 15pt;
+  margin: 0;
+  padding: 0;
+  margin-top: -4px;
+  display: block;
+}
+
+.header-section {
+  font-family: Arial Narrow, Arial, sans-serif;
+  font-stretch: condensed;
+  font-size: 25pt;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: -0.7pt;
+  margin: 0;
+  padding: 0;
+  margin-top: 4px;
+  display: block;
+}
+
+.primary {
+  color: #000;
+  border-color: #000;
+}
+
+.primary a {
+  color: #000;
+}
+
+.secondary {
+  color: #bbb;
+  border-color: #bbb;
+  transition: color 0.5s, border-color 0.5s;
+  -moz-transition: color 0.5s, border-color 0.5s;
+  -webkit-transition: color 0.5s, border-color 0.5s;
+}
+
+.secondary a {
+  color: #bbb;
+  transition: color 0.5s;
+  -moz-transition: color 0.5s;
+  -webkit-transition: color 0.5s;
+}
+
+.secondary:hover {
+  color: #000;
+  border-color: #000;
+  transition: color 0.5s, border-color 0.5s;
+  -moz-transition: color 0.5s, border-color 0.5s;
+  -webkit-transition: color 0.5s, border-color 0.5s;
+}
+
+.secondary:hover a {
+  color: #000;
+}
+
+.secondary:hover ul:hover a {
+  transition: none;
+  -moz-transition: none;
+  -webkit-transition: none;
+}
+
+#header ul a {
+  display: inline-block;
+  padding: 2px;
+}
+
+#header ul a:hover {
+  background-color: black;
+  color: #fff;
+}
+
+a.active {
+  background-color: black;
+  color: #fff;
+}
+
+#header ul a:active {
+
+}
+
+#header ul a:visited {
+  
+}
+
+#header ul.inpage-nav {
+  margin-top: -6px;
+  padding: 0;
+  width: auto;
+  max-width: 300px;
+}
+
+#header ul.inpage-nav a {
+  font-family: Arial;
+  font-stretch: normal;
+  text-transform: none;
+  font-size: 10pt;
+  color: #ccc;
+}
+
+#header ul.inpage-nav a:hover {
+  background: none;
+  color: #999;
+}
+
+#header ul.inpage-nav li {
+  display: inline;
+}
+
+#semnet-header .inpage-nav {
+  float: right;
+  clear: both;
+}
+
+#artnet-header .inpage-nav {
+  float: left;
+  clear: both;
+}
+
+#content {
+  font-family: Georgia, serif;
+  font-size: 11pt;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+#content dl {
+  margin: 20px 40px 20px 40px;
+}
+
+#content dl dt a {
+  font-weight: bold;
+}
+
+#content dl dd {
+  margin: 5px 0 15px 20px;
+  color: #666;
+}
+
+#content dl dd:before {
+  /*content: "• ";*/
+}
+
+#content a[rel~="external"]:after {
+  content: url(img/arrow.png);
+}
+
+#content p {
+  padding: 0 0 0 0;
+  margin-top: 5px;
+  margin-left: 20px;
+  margin: 10px 10px 5px 20px;
+  line-height: 1.3em;
+}
+
+#content p a {
+  -webkit-hyphens: manual;
+  -moz-hyphens: manual;
+  hyphens: manual;
+}
+
+#content ul, ol {
+  line-height: 1.2em;
+  margin: 6px 10px 16px 20px;
+}
+
+#content ul li {
+  margin-bottom: 8px;
+}
+
+#content h4 {
+  border: 1px solid #666;
+  background: white;
+  border-top-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+  font-family: Arial Black, Arial, sans-serif;
+  font-weight: 900;
+  font-size: 16pt;
+  text-transform: uppercase;
+  margin: 20px 0 5px 0px;
+  padding: 5px 0 5px 20px;
+  /*border-bottom: 1px dotted #ccc;*/
+  clear: both;
+}
+
+#content h4:target {
+  transition: background-color 0.5s, border-color 0.5s;
+  -moz-transition: background-color 0.5s, border-color 0.5s;
+  -webkit-transition: background-color 0.5s, border-color 0.5s;
+  background: #eee;
+  border-color: #ccc;
+}
+
+#content h5 {
+  margin: 5px 0 0 20px;
+  font-size: 11pt;
+}
+
+#content h4 a {
+  border: none;
+}
+
+#content h4 a:hover {
+  color: #333;
+  background-color: inherit;
+}
+
+#content h4 a:hover:after {
+  content: "#";
+  color: #ccc;
+}
+
+#content a {
+  border-bottom: solid 1px #ccc;
+}
+
+#content a:hover {
+   background-color: #eee;
+}
+
+#content p a img.illustration {
+  border: 4px solid #eee;
+  float: right;
+  padding: 5px;
+  margin: 10px;
+  /*-moz-box-shadow: 0 0 6px #ccc;
+	-webkit-box-shadow: 0 0 6px #ccc;
+  box-shadow: 0 0 6px #ccc;*/
+}
+
+#content p a img.illustration:hover {
+  border-color: #aaa;
+  /*-moz-box-shadow: 0 0 6px #888;
+	-webkit-box-shadow: 0 0 6px #888;
+  box-shadow: 0 0 6px #888;*/
+}
+
+#footer {
+  font-family: Georgia, serif;
+  font-size: 10pt;
+  width: 300px;
+  border-top: 1px dotted #aaa;
+  margin: 40px auto 20px auto;
+  padding-top: 5px;
+  color: #666;
+  text-align: center;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+.clear {
+  clear: both;
+}
+
+/* NESTED ORDERED LIST - thanks to BalusC @ stackoverflow.com - http://stackoverflow.com/questions/2729927/number-nested-ordered-lists-in-html */
+
+html>/**/body ol.outline { /* Won't be interpreted by IE6/7. */
+  line-height: 150%;
+  list-style-type: none;
+  counter-reset: level1;
+}
+
+ol.outline ol {
+  line-height: 150%;
+  margin: 0;
+}
+
+ol.outline li {
+  font-weight: bold;
+}
+
+ol.outline li:before {
+  font-weight: normal;
+  color: #aaa;
+  content: counter(level1) ". ";
+  counter-increment: level1;
+}
+
+ol.outline li ol {
+  padding-left: 20px;
+  list-style-type: none;
+  counter-reset: level2;
+}
+
+ol.outline li ol li {
+  font-weight: normal;
+  font-style: italic;
+}
+
+ol.outline li ol li:before {
+  font-style: normal;
+  color: #aaa;
+  content: counter(level1) "." counter(level2) " ";
+  counter-increment: level2;
+}
+
+ol.outline li ol li ol {
+  padding-left: 40px;
+  list-style-type: none;
+  counter-reset: level3;
+}
+
+ol.outline li ol li ol li {
+  font-weight: normal;
+  font-style: normal;
+}
+
+ol.outline li ol li ol li:before {
+  color: #aaa;
+  content: counter(level1) "." counter(level2) "." counter(level3) " ";
+  counter-increment: level3;
+}
+
+ol.outline li span { /* For IE6/7. */
+  margin: 0 5px 0 -25px;
+}
+
+.inline {
+  display: inline;
+}
+
+#content .download {
+  background: url(img/download.png) 20px center no-repeat;
+  font-family: Arial, sans-serif;
+  font-size: 12pt;
+  font-weight: bold;
+  border: 10px solid #ddd;
+  border-top-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  margin: 20px 50px;
+  padding: 20px;
+  padding-left: 85px;
+}
+
+#content .download a {
+  border: none;
+}
+
+#content .download:hover a {
+  border-bottom: solid 1px #ccc;
+}
+
+
+#content .download .filesize {
+  color: #ccc;
+  font-weight: normal;
+  font-style: italic;
+  
+}
+
+#content .download .desc {
+  font-weight: normal;
+  font-style: italic;
+  font-size: 11px;
+  color: #666;
+}
+
+#content .download .desc a {
+  color: inherit;
+}
+
+#content .download p {
+  margin: 2px;
+}
+
+#content .download-group:target .download, #content .download:target {
+  border-color: #999;
+  background-image: url(img/download-target.gif);
+}
+
+.note {
+  background: url(img/note.png) 12px 12px no-repeat;
+  font-family: Arial, sans-serif;
+  font-size: 10pt;
+  border: 10px solid #ddd;
+  border-top-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  margin: 15px 50px;
+  padding: 15px;
+  padding-left: 70px;
+  display: block;
+  color: #888;
+  min-height: 30px;
+}
+
+#content .note a {
+  color: #666;
+}
+
+.folder {
+  font-size: 13pt;
+  background: url(img/folder-icon.png) no-repeat;
+  padding-left: 25px;
+}
+
+.folder, .mono {
+  font-family: Courier New, monospace;
+  font-weight: bold;
+}
+
+.terminal {
+  background-color: black;
+  color: white;
+  font-family: Courier New, monospace;
+  width: 90%;
+  padding: 4px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 20px;
+}
+
+.terminal:before {
+  content: "$> ";
+}
+
+.emph {
+  font-style: italic;
+}
+
+#content .header-links {
+  float: right;
+  margin: -5px 0 10px 10px;
+}
+
+#content .header-link {
+  position: relative;
+  margin: 0 0 0 -1px;
+  
+  font-family: Arial, sans-serif;
+  font-size: 8pt;
+  text-transform: uppercase;
+  border: 1px solid #ccc;
+  border-top: none;
+  display: inline-block;
+  transition: background-color 0.5s, border-color 0.5s, border-bottom-right-radius 0.3s, border-bottom-left-radius 0.3s;
+  -moz-transition: background-color 0.5s, border-color 0.5s, border-bottom-right-radius 0.3s, border-bottom-left-radius 0.3s;
+  -webkit-transition: background-color 0.5s, border-color 0.5s, border-bottom-right-radius 0.3s, border-bottom-left-radius 0.3s;
+}
+
+#content .header-link a {
+  display: inline-block;
+  padding: 5px 10px;
+}
+
+.header-link:last-child {
+  border-bottom-right-radius: 15px;
+}
+
+.header-link:first-child {
+  border-bottom-left-radius: 15px;
+}
+
+#content .header-link:hover {
+  background-color: #eee;
+  border-color: #666;
+  border-top: none;
+  z-index: 2;
+  transition: border-bottom-right-radius 0.3s, border-bottom-left-radius 0.3s;
+  -moz-transition: border-bottom-right-radius 0.3s, border-bottom-left-radius 0.3s;
+  -webkit-transition: border-bottom-right-radius 0.3s, border-bottom-left-radius 0.3s;
+}
+
+#content .header-link:hover {
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+#content .header-link:last-child:hover {
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 15px;
+}
+
+#content .header-link:first-child:hover {
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 0px;
+}
+
+#content .header-links a {
+  border: none;
+  color: #ccc;
+  background: none;
+  transition: color 0.5s;
+  -moz-transition: color 0.5s;
+  -webkit-transition: color 0.5s;
+}
+
+#content .header-link:hover a {
+  border: none;
+  color: #000;
+  background: none;
+}
+
+#content .construction {
+  display: block;
+  width: 90%;
+  color: #666;
+  background-color: #eee;
+  font-style: italic;
+  padding: 10px 15px;
+  text-align: center;
+  margin: 25px auto;
+  border-top: 2px #666 solid;
+  border-bottom: 2px #666 solid;
+}

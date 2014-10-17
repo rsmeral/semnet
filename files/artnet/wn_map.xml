@@ -1,0 +1,31 @@
+<mapping>
+
+	<!-- CSFD.cz -->
+	<entry target="SUBJECT,OBJECT">
+		<from>http://www.csfd.cz#actor</from>
+		<to>http://www.w3.org/2006/03/wn/wn20/instances/synset-actor-noun-1</to>
+	</entry>
+	<entry target="SUBJECT,OBJECT">
+		<from>http://www.csfd.cz#film</from>
+		<to>http://www.w3.org/2006/03/wn/wn20/instances/synset-movie-noun-1</to>
+	</entry>
+	<entry target="SUBJECT,OBJECT">
+		<from>http://www.csfd.cz#director</from>
+		<to>http://www.w3.org/2006/03/wn/wn20/instances/synset-director-noun-3</to>
+	</entry>
+	
+	<!-- DatabazeKnih.cz -->
+	<entry target="SUBJECT,OBJECT">
+		<from>http://www.databazeknih.cz#writer</from>
+		<to>http://www.w3.org/2006/03/wn/wn20/instances/synset-writer-noun-1</to>
+	</entry>
+	<entry target="SUBJECT,OBJECT">
+		<from>http://www.databazeknih.cz#book</from>
+		<to>http://www.w3.org/2006/03/wn/wn20/instances/synset-book-noun-1</to>
+	</entry>
+	<entry target="SUBJECT,OBJECT">
+		<from>http://www.databazeknih.cz#shortStory</from>
+		<to>http://www.w3.org/2006/03/wn/wn20/instances/synset-short_story-noun-1</to>
+	</entry>
+	
+</mapping>

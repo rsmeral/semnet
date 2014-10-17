@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-GB" xml:lang="en-GB" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>ArtNet: Data</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="keywords" content="semantic network, associative network, crawler, scraper" />
+        <meta name="description" content="Building of domain-specific semantic networks from webpages" /> 
+        <link rel="stylesheet" href="style.css" type="text/css" />
+        <!--[if lt IE 9]>
+          <link rel="stylesheet" href="ie-fix.css" type="text/css" />
+        <![endif]-->
+    </head>
+    <body class="artnet">
+        <!--[if lt IE 9]>
+          <div id="ie-warning">It seems that you are using Internet Explorer. For optimal viewing experience, use an internet browser. Choose one at <a href="http://browserchoice.eu" title="Browser Choice" rel="external">browserchoice.eu</a>.</div>
+        <![endif]-->
+        <div id="header">
+          <div id="semnet-header" class="secondary header-box">
+            <ul id="semnet-nav">
+              <li><a href="index.html" title="Introduction to SemNet">About</a></li>
+              <li><a href="semnet-doc.html" title="Documentation of SemNet's fundamentals">Documentation</a></li>
+              <li><a href="semnet-usage.html" title="Usage instructions for SemNet">Usage</a></li>
+              <li><a href="semnet-download.html" title="SemNet binaries and sources">Download</a></li>
+              <li><a href="semnet-thesis.html" title="Bachelor's thesis behind SemNet">Thesis</a></li>
+            </ul>
+            <span class="header-text"><a href="index.html" title="Introduction to SemNet">SemNet</a></span>
+            <span class="header-sub">Semantic network building toolset</span>
+          </div>
+          <div id="artnet-header" class="primary header-box">
+            <ul id="artnet-nav">
+              <li><a href="artnet-about.html" title="Characteristics of ArtNet and its relation to SemNet">About</a></li>
+              <li><a class="active" href="artnet-data.html" title="RDF files of the collected data">Data</a></li>
+              <li><a href="artnet-usage.html" title="Instructions for querying using built-in query tool">Usage</a></li>
+            </ul>
+            <h1 class="header-text"><a href="artnet-about.html" title="Characteristics of ArtNet and its relation to SemNet">ArtNet</a></h1>
+            <h2 class="header-sub">Semantic network of artworks</h2>
+            <h3 class="header-section">Data</h3>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="content">
+          <p>
+            <!--<span class="construction">(Under construction)</span>-->
+            The collected data in RDF format and the SeRQL queries that were used to retrieve the data from the store. These do not include inferred statements (WordNet class hierarchy).
+          </p>
+          <div class="download-group" id="rdf-datasets">
+              <div class="download">
+                <p><a href="files/artnet/rdf/film-people.rdf.zip">film-people.rdf.zip </a><span class="filesize">(1 MB)</span></p>
+                <p class="desc">Actors and directors from CSFD.cz. (<a href="files/artnet/rdf/film-people.serql">SERQL</a>)</p>
+              </div>
+              
+              <div class="download">
+                <p><a href="files/artnet/rdf/film-works.rdf.zip">film-works.rdf.zip </a><span class="filesize">(13 MB)</span></p>
+                <p class="desc">Films from CSFD.cz. (<a href="files/artnet/rdf/film-works.serql">SERQL</a>)</p>
+              </div>
+              
+              <div class="download">
+                <p><a href="files/artnet/rdf/lit-people.rdf.zip">lit-people.rdf.zip </a><span class="filesize">(1 MB)</span></p>
+                <p class="desc">Literary authors from DatabazeKnih.cz. (<a href="files/artnet/rdf/lit-people.serql">SERQL</a>)</p>
+              </div>
+              
+              <div class="download">
+                <p><a href="files/artnet/rdf/lit-works.rdf.zip">lit-works.rdf.zip </a><span class="filesize">(4 MB)</span></p>
+                <p class="desc">Literary works from DatabazeKnih.cz. (<a href="files/artnet/rdf/lit-works.serql">SERQL</a>)</p>
+              </div>
+          </div>
+          <p>To access and query the full dataset (see <a href="artnet-usage.html" title="Instructions for querying using built-in query tool">Usage</a> for instructions), download the complete sample file, which contains SemNet binaries and libraries, ArtNet configuration and data files in Sesame native store format. </p>
+          <div class="download" id="sesame-native-dataset">
+            <p><a href="files/artnet/semnet_artnet_full.zip" title="SemNet binaries + ArtNet data (ZIP, 81 MB)">semnet_artnet_full.zip </a><span class="filesize">(81 MB)</span></p>
+            <p class="desc">SemNet binaries, libraries, documentation, sources, ArtNet configuration, all collected data (including inferred statements)</p>
+          </div>
+        </div>
+        <div id="footer">
+          smeral(at)mail.muni.cz<br />
+          Ron Šmeral<br />
+          2011
+        </div>
+    </body>
+</html>

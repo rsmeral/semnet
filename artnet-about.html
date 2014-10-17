@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-GB" xml:lang="en-GB" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>ArtNet: About</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="keywords" content="semantic network, associative network, crawler, scraper" />
+        <meta name="description" content="Building of domain-specific semantic networks from webpages" /> 
+        <link rel="stylesheet" href="style.css" type="text/css" />
+        <!--[if lt IE 9]>
+          <link rel="stylesheet" href="ie-fix.css" type="text/css" />
+        <![endif]-->
+    </head>
+    <body class="artnet">
+        <!--[if lt IE 9]>
+          <div id="ie-warning">It seems that you are using Internet Explorer. For optimal viewing experience, use an internet browser. Choose one at <a href="http://browserchoice.eu" title="Browser Choice" rel="external">browserchoice.eu</a>.</div>
+        <![endif]-->
+        <div id="header">
+          <div id="semnet-header" class="secondary header-box">
+            <ul id="semnet-nav">
+              <li><a href="index.html" title="Introduction to SemNet">About</a></li>
+              <li><a href="semnet-doc.html" title="Documentation of SemNet's fundamentals">Documentation</a></li>
+              <li><a href="semnet-usage.html" title="Usage instructions for SemNet">Usage</a></li>
+              <li><a href="semnet-download.html" title="SemNet binaries and sources">Download</a></li>
+              <li><a href="semnet-thesis.html" title="Bachelor's thesis behind SemNet">Thesis</a></li>
+            </ul>
+            <span class="header-text"><a href="index.html" title="Introduction to SemNet">SemNet</a></span>
+            <span class="header-sub">Semantic network building toolset</span>
+          </div>
+          <div id="artnet-header" class="primary header-box">
+            <ul id="artnet-nav">
+              <li><a class="active" href="artnet-about.html" title="Characteristics of ArtNet and its relation to SemNet">About</a></li>
+              <li><a href="artnet-data.html" title="RDF files of the collected data">Data</a></li>
+              <li><a href="artnet-usage.html" title="Instructions for querying using built-in query tool">Usage</a></li>
+            </ul>
+            <h1 class="header-text"><a href="artnet-about.html" title="Characteristics of ArtNet and its relation to SemNet">ArtNet</a></h1>
+            <h2 class="header-sub">Semantic network of artworks</h2>
+            <h3 class="header-section">About</h3>
+            <ul class="inpage-nav">
+              <li><a href="#schema" title="Schema of the collected data">#schema</a></li>
+              <li><a href="#configuration" title="Configuration files of ArtNet">#configuration</a></li>
+              <li><a href="#scrapers" title="ArtNet scrapers">#scrapers</a></li>
+            </ul>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="content">
+          <p>
+            ArtNet is a&nbsp;semantic network of works of art created using SemNet.<br />
+            It contains <a href="artnet-data.html" title="RDF files of the collected data">data</a> collected from <a href="http://www.csfd.cz" rel="external">ČSFD.cz</a> and <a href="http://www.databazeknih.cz" rel="external">DatabazeKnih.cz</a> during may 2011, in the extent of
+          </p> 
+          <ul>
+            <li>244 000 movies,</li>
+            <li>58 000 actors/directors,</li>
+            <li>73 000 books,</li>
+            <li>23 000 literary authors,</li>
+          </ul>
+          <p>and millions of relationships. Entities in ArtNet are instances of WordNet "classes" (synsets).<br /></p>
+          <a name="schema"></a>
+          <h4 id="schema"><a class="paralink" href="#schema" title="Schema of the collected data">Schema</a></h4>
+          <p>The schema of the collected data is defined in the scrapers, which can be downloaded in the <a href="#scrapers">Scrapers</a> section, and has roughly the following structure:<br /><br />
+          </p>
+          <h5>Film:</h5>
+          <ul>
+            <li>title(s)</li>
+            <li>director(s)</li>
+            <li>actor(s)</li>
+            <li>genre(s)</li>
+            <li>country(ies) of origin</li>
+            <li>year of release</li>
+            <li>duration</li>
+            <li>IMDb link</li>
+            <li>official webpage</li>
+          </ul>
+          <h5>Actor/Director:</h5>
+          <ul>
+            <li>name</li>
+            <li>type (actor/director)</li>
+            <li>birth date</li>
+            <li>IMDb link</li>
+          </ul>
+          <h5>Book:</h5>
+          <ul>
+            <li>title</li>
+            <li>author(s)</li>
+            <li>year of publishing</li>
+            <li>ISBN</li>
+          </ul>
+          <h5>Short story:</h5>
+          <ul>
+            <li>title</li>
+            <li>the containing book</li>
+            <li>author(s)</li>
+            <li>year of publishing</li>
+          </ul>
+          <h5>Writer:</h5>
+          <ul>
+            <li>name</li>
+            <li>pseudonym</li>
+            <li>birth date</li>
+            <li>date of demise</li>
+            <li>country of origin</li>
+          </ul>
+          <a name="configuration"></a>
+          <h4 id="configuration"><a class="paralink" href="#configuration" title="Configuration files of ArtNet">Configuration</a></h4>
+          <p>This section contains the configuration files that were used to collect the data. These files are used by SemNet's JobRunner and processors.<br /></p>
+          <dl>
+            <dt><a href="files/artnet/job.xml">job.xml</a></dt>
+            <dd>Required by JobRunner; defines the processor chain.</dd>
+            
+            <dt><a href="files/artnet/crawler.xml">crawler.xml</a></dt>
+            <dd>Crawler configuration; defines hosts for crawling and their parameters.</dd>
+            
+            <dt><a href="files/artnet/bootstrap.list">bootstrap.list</a></dt>
+            <dd>The list of URLs used to bootstrap the crawling process.</dd>
+            
+            <dt><a href="files/artnet/wn_map.xml">wn_map.xml</a></dt>
+            <dd>Defines mappings between the terms of the temporary vocabulary of scrapers to the vocabulary of the built network (WordNet terms in this case).</dd>
+            
+            <dt><a href="files/artnet/sesame.properties">sesame.properties</a></dt>
+            <dd>Configuration options for the connection to a&nbsp;Sesame store.</dd>
+            
+            <dt><a href="http://www.w3.org/2006/03/wn/wn20/rdf/wordnet-hyponym.rdf" rel="external">wordnet-hyponym.rdf</a></dt>
+            <dd>WordNet 2.0 hyponymy set was used to bootstrap the triple store, to serve as a&nbsp;class hierarchy.</dd>
+            
+            <dt><a href="files/artnet/wn_as_class_hierarchy.rdf">wn_as_class_hierarchy.rdf</a></dt>
+            <dd>Contains two RDF statements which enable the use of WordNet as a&nbsp;class hierarchy.</dd>
+          </dl>
+          <a name="scrapers"></a>
+          <h4 id="scrapers"><a class="paralink" href="#scrapers" title="ArtNet scrapers">Scrapers</a></h4>
+          <p>Following two files are the scrapers which are basically wrappers for specific websites (CSFD.cz and DatabazeKnih.cz in this case). They depend on the SemNet, Sesame and HTMLCleaner libraries, so they can't be compiled alone and are included here only for illustration. <br /></p>
+          <dl>
+            <dt><a href="CSFDScraper.html">CSFDScraper.java</a></dt>
+            <dd>The scraper class for CSFD.cz. Contains scrapers for Actor/Director and Film.</dd>
+            
+            <dt><a href="DBKnih.html">DBKnih.java</a></dt>
+            <dd>The scraper class for DatabazeKnih.cz. Contains scrapers for Book, Short story and Writer.</dd>
+          </dl>
+          <p>
+          The compiled files can be downloaded in the complete sample file which includes SemNet binaries, all dependencies and ArtNet configuration.</p>
+          <div class="download">
+            <p><a href="files/artnet/semnet_artnet_conf.zip" title="SemNet binaries (ZIP, 12 MB)">semnet_artnet_conf.zip </a><span class="filesize">(12 MB)</span></p>
+            <p class="desc">SemNet binaries, required libraries, sources, documentation, ArtNet configuration files</p>
+          </div>
+        </div>
+        <div id="footer">
+          smeral(at)mail.muni.cz<br />
+          Ron Šmeral<br />
+          2011
+        </div>
+    </body>
+</html>

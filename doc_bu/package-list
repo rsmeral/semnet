@@ -1,0 +1,11 @@
+xsmeral.semnet.crawler
+xsmeral.semnet.crawler.model
+xsmeral.semnet.crawler.util
+xsmeral.semnet.manager
+xsmeral.semnet.mapper
+xsmeral.semnet.query
+xsmeral.semnet.scraper
+xsmeral.semnet.scraper.onto
+xsmeral.semnet.sink
+xsmeral.semnet.util
+xsmeral.semnet.xstream

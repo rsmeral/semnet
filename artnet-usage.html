@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-GB" xml:lang="en-GB" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>ArtNet: Usage</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="keywords" content="semantic network, associative network, crawler, scraper" />
+        <meta name="description" content="Building of domain-specific semantic networks from webpages" /> 
+        <link rel="stylesheet" href="style.css" type="text/css" />
+        <!--[if lt IE 9]>
+          <link rel="stylesheet" href="ie-fix.css" type="text/css" />
+        <![endif]-->
+    </head>
+    <body class="artnet">
+        <!--[if lt IE 9]>
+          <div id="ie-warning">It seems that you are using Internet Explorer. For optimal viewing experience, use an internet browser. Choose one at <a href="http://browserchoice.eu" title="Browser Choice" rel="external">browserchoice.eu</a>.</div>
+        <![endif]-->
+        <div id="header">
+          <div id="semnet-header" class="secondary header-box">
+            <ul id="semnet-nav">
+              <li><a href="index.html" title="Introduction to SemNet">About</a></li>
+              <li><a href="semnet-doc.html" title="Documentation of SemNet's fundamentals">Documentation</a></li>
+              <li><a href="semnet-usage.html" title="Usage instructions for SemNet">Usage</a></li>
+              <li><a href="semnet-download.html" title="SemNet binaries and sources">Download</a></li>
+              <li><a href="semnet-thesis.html" title="Bachelor's thesis behind SemNet">Thesis</a></li>
+            </ul>
+            <span class="header-text"><a href="index.html" title="Introduction to SemNet">SemNet</a></span>
+            <span class="header-sub">Semantic network building toolset</span>
+          </div>
+          <div id="artnet-header" class="primary header-box">
+            <ul id="artnet-nav">
+              <li><a href="artnet-about.html" title="Characteristics of ArtNet and its relation to SemNet">About</a></li>
+              <li><a href="artnet-data.html" title="RDF files of the collected data">Data</a></li>
+              <li><a class="active" href="artnet-usage.html" title="Instructions for querying using built-in query tool">Usage</a></li>
+            </ul>
+            <h1 class="header-text"><a href="artnet-about.html" title="Characteristics of ArtNet and its relation to SemNet">ArtNet</a></h1>
+            <h2 class="header-sub">Semantic network of artworks</h2>
+            <h3 class="header-section">Usage</h3>
+            <ul class="inpage-nav">
+              <li><a href="#setup" title="Instructions for setup of ArtNet">#setup</a></li>
+              <li><a href="#querying" title="Instructions for querying using built-in tools">#querying</a></li>
+            </ul>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="content">
+          <p>
+            <!--<span class="construction">(Under construction)</span>-->
+            This page provides instructions for querying of the ArtNet data.<br />
+            There are two ways to access the data:
+          </p>
+          <ul>
+            <li>download the <a href="artnet-data.html#rdf-datasets" title="Collected data of ArtNet in RDF format">RDF datasets</a> from the Data page and use them with any RDF-enabled tool (triple stores, reasoners, &hellip;),</li>
+            <li>download the <a href="artnet-data.html#sesame-native-dataset" title="Collected data of ArtNet in Sesame native store format">full data set</a> in Sesame native store format and use the querying tools in SemNet to access the data.</li>
+          </ul>
+          <a name="setup"></a>
+          <h4 id="setup"><a class="paralink" href="#setup" title="Instructions for setup of ArtNet">Setup</a></h4>
+          <ul>
+            <li>Download and extract the <a href="artnet-data.html#sesame-native-dataset" title="Collected data of ArtNet in Sesame native store format">full data set</a> from the Data page (includes the binaries).</li>
+            <li>The archive contains the following folders:
+                <dl>
+                  <dt class="folder">data</dt>
+                  <dd>Contains the postgres DB dump of the state of the HTML crawler (collected URLs) and the Sesame native store files with all the collected and inferred data.</dd>
+
+                  <dt class="folder">doc</dt>
+                  <dd>Javadoc for SemNet and PipedObjectProcessor.</dd>
+                  
+                  <dt class="folder">proj</dt>
+                  <dd>Java sources, NetBeans projects and Ivy files for SemNet, ArtNetScrapers and PipedObjectProcessor.</dd>
+
+                  <dt class="folder">sample</dt>
+                  <dd>This folder is the main entry point to the program. It contains the binaries of SemNet and all the required libraries, configuration files for ArtNet and executable scripts (Windows batch files).</dd>
+                </dl>
+                <div class="note">For use on systems other than Windows, the scripts can easily be adjusted by replacing the classpath separator character (";" on Windows) and the variable argument count placeholder ("%*" on Windows) with their respective counterparts.</div>
+            </li>
+          </ul>
+            <a name="querying"></a>
+            <h4 id="querying"><a class="paralink" href="#querying" title="Instructions for querying using built-in tools">Querying</a></h4>
+            <p>In the <span class="mono">sample</span> directory, execute the <span class="mono">query.bat</span>. It takes several parameters:</p>
+              <div class="terminal">query <span class="emph">&lt;conf&gt; &lt;operation&gt; [args]</span></div>
+              <p>where <span class="mono">&lt;conf&gt;</span> is a&nbsp;path to the configuration file of the repository (the triple store) and <span class="mono">&lt;operation&gt;</span> is one of the operations offered by the QueryInterface (which may optionally take some <span class="mono">[args]</span>. The operations are as follows:</p>
+              <dl>
+                <dt><span class="mono">has <span class="emph">&lt;label&gt;</span></span></dt>
+                <dd>Returns <span class="mono">true</span> if the repository contains a&nbsp;resource with a&nbsp;<span class="mono">rdfs:label</span> equal to <span class="mono emph">&lt;label&gt;</span>.</dd>
+                
+                <dt><span class="mono">what <span class="emph">&lt;label&gt;</span></span></dt>
+                <dd>Returns a&nbsp;list of resources with the given <span class="mono emph">&lt;label&gt;</span>.</dd>
+                
+                <dt><span class="mono">type, fulltype <span class="emph">&lt;uri&gt;</span></span></dt>
+                <dd>These two commands both take a&nbsp;URI of a&nbsp;resource and return the <span class="mono">rdf:type</span>s of the resource, either the direct type or the full type (the class hierarchy), respectively.</dd>
+                
+                <dt><span class="mono">describe <span class="emph">&lt;uri&gt;</span></span></dt>
+                <dd>Returns all statements containing <span class="mono emph">&lt;uri&gt;</span> as the subject or the object.</dd>
+                
+                <dt><span class="mono">count</span></dt>
+                <dd>Returns the number of explicit (not inferred) statements currently present in the repository.</dd>
+                
+                <dt><span class="mono">tquery <span class="emph">&lt;query_file&gt;</span></span></dt>
+                <dd>Evaluates the SeRQL tuple query from the <span class="mono emph">&lt;query_file&gt;</span> and returns the resulting binding sets.</dd>
+                
+                <dt><span class="mono">gquery <span class="emph">&lt;query_file&gt;</span> <span class="emph">&lt;output_file&gt;</span></span></dt>
+                <dd>Evaluates the SeRQL graph query from the <span class="mono emph">&lt;query_file&gt;</span> and writes the resulting RDF graph to the <span class="mono emph">&lt;output_file&gt;</span>.</dd>
+                
+                <dt><span class="mono">rdfdump <span class="emph">&lt;dump_file&gt;</span></span></dt>
+                <dd>Dumps the contents of the repository to the <span class="mono emph">&lt;dump_file&gt;</span> in RDF format.</dd>
+              </dl>
+              <p>So, for example, to execute one of the sample SeRQL tuple queries located in <span class="mono">sample/serql</span> over the sample repository configured in <span class="mono">sample/artnet</span> (whose data are located in <span class="mono">data/sesameData</span>), the following command should be executed:</p>
+              <div class="terminal">query artnet/sesame.properties tquery serql/actor-filmography.serql</div>
+              <p>which would output all of the movies starring Bolek Polívka. The <span class="mono">sample/serql</span> includes more examples of tuple queries. Some examples of graph queries can be seen on the <a href="artnet-data.html#rdf-datasets" title="Collected data of ArtNet in RDF format">Data</a> page. For more information on the SeRQL language, see the <a href="http://www.openrdf.org/doc/sesame2/users/ch09.html" rel="external" title="SeRQL reference">SeRQL reference</a>.</p>
+              <div class="note">For optimal performance in all of the queries, it is advisable to add supplementary indexes to the configuration of the repository. This can be achieved by editing the <span class="mono">sample/artnet/sesame.properties</span> file and changing the <span class="mono">indexes</span> parameter to a&nbsp;comma separated list of indexes, like so:<br /><span class="mono">indexes=psoc,opsc,spoc</span></div>
+        </div>
+        <div id="footer">
+          smeral(at)mail.muni.cz<br />
+          Ron Šmeral<br />
+          2011
+        </div>
+    </body>
+</html>

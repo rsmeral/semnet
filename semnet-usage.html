@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-GB" xml:lang="en-GB" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>SemNet: Usage</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="keywords" content="semantic network, associative network, crawler, scraper" />
+        <meta name="description" content="Building of domain-specific semantic networks from webpages" /> 
+        <link rel="stylesheet" href="style.css" type="text/css" />
+        <link rel="stylesheet" href="highlighter.css" type="text/css" />
+        <!--[if lt IE 9]>
+          <link rel="stylesheet" href="ie-fix.css" type="text/css" />
+        <![endif]-->
+    </head>
+    <body class="semnet">
+        <!--[if lt IE 9]>
+          <div id="ie-warning">It seems that you are using Internet Explorer. For optimal viewing experience, use an internet browser. Choose one at <a href="http://browserchoice.eu" title="Browser Choice" rel="external">browserchoice.eu</a>.</div>
+        <![endif]-->
+        <div id="header">
+          <div id="semnet-header" class="primary header-box">
+            <ul id="semnet-nav">
+              <li><a href="index.html" title="Introduction to SemNet">About</a></li>
+              <li><a href="semnet-doc.html" title="Documentation of SemNet's fundamentals">Documentation</a></li>
+              <li><a class="active" href="semnet-usage.html" title="Usage instructions for SemNet">Usage</a></li>
+              <li><a href="semnet-download.html" title="SemNet binaries and sources">Download</a></li>
+              <li><a href="semnet-thesis.html" title="Bachelor's thesis behind SemNet">Thesis</a></li>
+            </ul>
+            <h1 class="header-text"><a href="index.html" title="Introduction to SemNet">SemNet</a></h1>
+            <h2 class="header-sub">Semantic network building toolset</h2>
+            <h3 class="header-section">Usage</h3>
+            <ul class="inpage-nav">
+              <li><a href="#setup" title="Setup of SemNet">#setup</a></li>
+              <li><a href="#execution" title="Job execution">#execution</a></li>
+              <li><a href="#hosts" title="Host management">#hosts</a></li>
+            </ul>
+          </div>
+          <div id="artnet-header" class="secondary header-box">
+            <ul id="artnet-nav">
+              <li><a href="artnet-about.html" title="Characteristics of ArtNet and its relation to SemNet">About</a></li>
+              <li><a href="artnet-data.html" title="RDF files of the collected data">Data</a></li>
+              <li><a href="artnet-usage.html" title="Instructions for querying using built-in query tool">Usage</a></li>
+            </ul>
+            <span class="header-text"><a href="artnet-about.html" title="Characteristics of ArtNet and its relation to SemNet">ArtNet</a></span>
+            <span class="header-sub">Semantic network of artworks</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="content">
+          <p>
+          This page provides instructions for setup, job execution and host management. Instructions for querying are available on the <a href="artnet-usage.html" title="Instructions for querying using built-in query tool">ArtNet: Usage</a> page.
+          </p>
+          <a name="setup"></a>
+          <h4 id="setup"><a class="paralink" href="#setup" title="Setup of SemNet">Setup</a></h4>
+          <ul>
+            <li>Download and extract the <a href="semnet-download.html#semnet-bin" title="SemNet binaries">SemNet binaries</a> from the Download page.
+              <span class="note">The directory structure of the archive is described on the <a href="artnet-usage.html#setup">ArtNet: Usage</a> page (with the exception of the <span class="mono">data</span> folder, which is not included in the SemNet binary package.</span>
+            </li>
+            <li>The package contains the configuration for ArtNet.
+              <ul>
+                <li>To execute the job of ArtNet, continue to the <a href="#execution" title="Job execution">Job execution</a> section.</li>
+                <li>To create a custom configuration, follow the information on the <a href="semnet-doc.html" title="Documentation of SemNet's fundamentals">SemNet: Documentation</a> page first.</li>
+              </ul>
+            </li>
+          </ul>
+          <a name="execution"></a>
+          <h4 id="execution"><a class="paralink" href="#execution" title="SemNet job execution">Job execution</a></h4>
+          <p>
+          The class <span class="mono">JobRunner</span> is responsible for running processing jobs. In the <span class="mono">sample</span> directory there is a script called <span class="mono">run.bat</span> which calls the <span class="mono">JobRunner</span> class. It takes only one parameter &ndash; name of the XML file containing the processing job definition (alternatively, a name of a folder can be passed, if the folder contains a file named exactly <span class="mono">job.xml</span>).
+          </p>
+          <p>
+          So, for example, to run the ArtNet job, the following command should be executed: 
+          </p>
+          <div class="terminal">run artnet</div>
+          <p>
+          which is the same as running
+          </p>
+          <div class="terminal">run artnet/job.xml</div>
+          <a name="hosts"></a>
+          <h4 id="hosts"><a class="paralink" href="#hosts" title="Host management">Host management</a></h4>
+          <p>
+          
+          </p>
+          <p>
+          <span class="construction">This page is still under construction. <br />Additional content will be available soon.</span>
+          </p>
+        </div>
+        <div id="footer">
+          smeral(at)mail.muni.cz<br />
+          Ron Šmeral<br />
+          2011
+        </div>
+    </body>
+</html>

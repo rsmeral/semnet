@@ -1,0 +1,14 @@
+CONSTRUCT DISTINCT *
+FROM    {work}  rdf:type    {wn20instances:synset-movie-noun-1};
+                rdfs:label  {lbl};
+                [csfd:directed_by {author}];
+                [csfd:genre {genre}];
+                [csfd:origin {origin}];
+                [csfd:year {year}];
+                [csfd:duration {duration}];
+                [owl:sameAs {same}];
+                [rdfs:seeAlso {see}]
+ORDER BY lbl, year
+USING NAMESPACE
+    wn20instances = <http://www.w3.org/2006/03/wn/wn20/instances/>,
+    csfd = <http://www.csfd.cz#>

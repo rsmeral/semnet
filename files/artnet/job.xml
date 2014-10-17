@@ -1,0 +1,14 @@
+<processingJob>
+  <name>ArtNet</name>
+  <description>Crawling job for ArtNet.</description>
+  <processorChain>
+    <processor conf="crawler.xml" bootstrap="bootstrap.list">xsmeral.semnet.crawler.HTMLCrawler</processor>
+    <processor>xsmeral.semnet.scraper.ScraperWrapper</processor>
+    <processor mapping="wn_map.xml">xsmeral.semnet.mapper.StatementMapper</processor>
+    <processor conf="sesame.properties" bootstrap="wn_as_class_hierarchy.rdf,wordnet-hyponym.rdf">xsmeral.semnet.sink.SesameWriter</processor>
+  </processorChain>
+  <attached>
+	<processor file="stderr" interval="20" filter="stats">xsmeral.pipe.stats.StatsWriter</processor>
+	<processor file="context.params">xsmeral.pipe.stats.StatsWriter</processor>
+  </attached>
+</processingJob>

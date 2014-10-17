@@ -1,0 +1,9 @@
+CONSTRUCT DISTINCT *
+FROM {p}    rdf:type    {typ};
+            rdfs:label  {aname};
+            [csfd:birth_date {birthDate}]
+WHERE typ in (wn20instances:synset-actor-noun-1, wn20instances:synset-director-noun-3)
+ORDER BY aname
+USING NAMESPACE
+    wn20instances = <http://www.w3.org/2006/03/wn/wn20/instances/>,
+    csfd = <http://www.csfd.cz#>

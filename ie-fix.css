@@ -1,0 +1,11 @@
+.long {
+  height: 100% !important;
+}
+
+.long.code:hover {
+  overflow: auto !important;
+}
+
+.long .code-fold {
+  display: none !important;
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-GB" xml:lang="en-GB" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>SemNet: Download</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="keywords" content="semantic network, associative network, crawler, scraper" />
+        <meta name="description" content="Building of domain-specific semantic networks from webpages" /> 
+        <link rel="stylesheet" href="style.css" type="text/css" />
+        <!--[if lt IE 9]>
+          <link rel="stylesheet" href="ie-fix.css" type="text/css" />
+        <![endif]-->
+    </head>
+    <body class="semnet">
+        <!--[if lt IE 9]>
+          <div id="ie-warning">It seems that you are using Internet Explorer. For optimal viewing experience, use an internet browser. Choose one at <a href="http://browserchoice.eu" title="Browser Choice" rel="external">browserchoice.eu</a>.</div>
+        <![endif]-->
+        <div id="header">
+          <div id="semnet-header" class="primary header-box">
+            <ul id="semnet-nav">
+              <li><a href="index.html" title="Introduction to SemNet">About</a></li>
+              <li><a href="semnet-doc.html" title="Documentation of SemNet's fundamentals">Documentation</a></li>
+              <li><a href="semnet-usage.html" title="Usage instructions for SemNet">Usage</a></li>
+              <li><a class="active" href="semnet-download.html" title="SemNet binaries and sources">Download</a></li>
+              <li><a href="semnet-thesis.html" title="Bachelor's thesis behind SemNet">Thesis</a></li>
+            </ul>
+            <h1 class="header-text"><a href="index.html" title="Introduction to SemNet">SemNet</a></h1>
+            <h2 class="header-sub">Semantic network building toolset</h2>
+            <h3 class="header-section">Download</h3>
+          </div>
+          <div id="artnet-header" class="secondary header-box">
+            <ul id="artnet-nav">
+              <li><a href="artnet-about.html" title="Characteristics of ArtNet and its relation to SemNet">About</a></li>
+              <li><a href="artnet-data.html" title="RDF files of the collected data">Data</a></li>
+              <li><a href="artnet-usage.html" title="Instructions for querying using built-in query tool">Usage</a></li>
+            </ul>
+            <span class="header-text"><a href="artnet-about.html" title="Characteristics of ArtNet and its relation to SemNet">ArtNet</a></span>
+            <span class="header-sub">Semantic network of artworks</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="content">
+          <!--<p><span class="construction">(Under construction)</span></p>-->
+          <p>SemNet can be downloaded either in a&nbsp;compiled version along with all required libraries and a&nbsp;sample network configuration (ArtNet), or only as source files and documentation.</p>
+          <div id="semnet-bin" class="download">
+            <p><a href="files/artnet/semnet_artnet_conf.zip" title="SemNet binaries (ZIP, 12 MB)">semnet_artnet_conf.zip </a><span class="filesize">(12 MB)</span></p>
+            <p class="desc">SemNet binaries, required libraries, sources, documentation, ArtNet configuration files</p>
+          </div>
+          
+          <div id="semnet-src" class="download">
+            <p><a href="files/artnet/semnet_src.zip" title="SemNet sources (ZIP, 1 MB)">semnet_src.zip </a><span class="filesize">(1 MB)</span></p>
+            <p class="desc">SemNet sources (+NetBeans projects and Ivy files), documentation</p>
+          </div>
+          <p>
+          The dependencies can be managed automatically using <a href="http://ant.apache.org/ivy/" rel="external" title="Apache Ivy, dependency manager">Ivy</a> which downloads all dependencies defined in the provided Ivy files at build time.<br />
+          The libraries used are:
+          </p>
+          <ul>
+            <li><a href="http://www.openrdf.org/" rel="external" title="OpenRDF.org, home of Sesame">Sesame</a></li>
+            <li><a href="http://htmlcleaner.sourceforge.net/" rel="external" title="Homepage of HTMLCleaner">HTMLCleaner</a></li>
+            <li><a href="http://xstream.codehaus.org/" rel="external" title="Homepage of XStream">XStream</a></li>
+            <li><a href="http://code.google.com/p/juniversalchardet/" rel="external" title="Homepage of juniversalchardet">juniversalchardet</a></li>
+            <li>(PostgreSQL) JDBC driver for the HTMLCrawler's link database</li>
+          </ul>
+        </div>
+        <div id="footer">
+          smeral(at)mail.muni.cz<br />
+          Ron Šmeral<br />
+          2011
+        </div>
+    </body>
+</html>

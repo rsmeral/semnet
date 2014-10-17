@@ -1,0 +1,11 @@
+CONSTRUCT DISTINCT *
+FROM {p}    rdf:type    {wn20instances:synset-writer-noun-1};
+            rdfs:label  {aname};
+            [dbk:pseudonym {pseudonym}];
+            [dbk:birthDate {birthDate}];
+            [dbk:deathDate {deathDate}];
+            [dbk:country {country}]
+ORDER BY aname
+USING NAMESPACE
+    wn20instances = <http://www.w3.org/2006/03/wn/wn20/instances/>,
+    dbk = <http://www.databazeknih.cz#>

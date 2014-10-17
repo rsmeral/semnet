@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-GB" xml:lang="en-GB" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>SemNet: About</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="keywords" content="semantic network, associative network, crawler, scraper" />
+        <meta name="description" content="Building of domain-specific semantic networks from webpages" /> 
+        <link rel="stylesheet" href="style.css" type="text/css" />
+        <!--[if lt IE 9]>
+          <link rel="stylesheet" href="ie-fix.css" type="text/css" />
+        <![endif]-->
+    </head>
+    <body class="semnet">
+        <!--[if lt IE 9]>
+          <div id="ie-warning">It seems that you are using Internet Explorer. For optimal viewing experience, use an internet browser. Choose one at <a href="http://browserchoice.eu" title="Browser Choice" rel="external">browserchoice.eu</a>.</div>
+        <![endif]-->
+        <div id="header">
+          <div id="semnet-header" class="primary header-box">
+            <ul id="semnet-nav">
+              <li><a class="active" href="index.html" title="Introduction to SemNet">About</a></li>
+              <li><a href="semnet-doc.html" title="Documentation of SemNet's fundamentals">Documentation</a></li>
+              <li><a href="semnet-usage.html" title="Usage instructions for SemNet">Usage</a></li>
+              <li><a href="semnet-download.html" title="SemNet binaries and sources">Download</a></li>
+              <li><a href="semnet-thesis.html" title="Bachelor's thesis behind SemNet">Thesis</a></li>
+            </ul>
+            <h1 class="header-text"><a href="index.html" title="Introduction to SemNet">SemNet</a></h1>
+            <h2 class="header-sub">Semantic network building toolset</h2>
+            <h3 class="header-section">About</h3>
+            <ul class="inpage-nav">
+              <li><a href="#design" title="Design of SemNet">#design</a></li>
+              <li><a href="#platform" title="Platform of SemNet">#platform</a></li>
+            </ul>
+          </div>
+          <div id="artnet-header" class="secondary header-box">
+            <ul id="artnet-nav">
+              <li><a href="artnet-about.html" title="Characteristics of ArtNet and its relation to SemNet">About</a></li>
+              <li><a href="artnet-data.html" title="RDF files of the collected data">Data</a></li>
+              <li><a href="artnet-usage.html" title="Instructions for querying using built-in query tool">Usage</a></li>
+            </ul>
+            <span class="header-text"><a href="artnet-about.html" title="Characteristics of ArtNet and its relation to SemNet">ArtNet</a></span>
+            <span class="header-sub">Semantic network of artworks</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="content">
+          <p>SemNet is a&nbsp;modular and extensible framework for building domain-specific semantic networks. The main purpose of SemNet is automated collection of unstructured or semi-structured data from web resources and their transformation into a&nbsp;machine readable representation &ndash; a&nbsp;semantic network.</p>
+          <a name="design"></a>
+          <h4 id="design"><a class="paralink" href="#design" title="Design of SemNet">Design</a></h4>
+          <p>
+          The system is composed of several modules, called <em>object processors</em>. 
+          <a href="img/semnet.png" title="Platform of SemNet (larger image)"><img class="illustration" src="img/semnet-small.png" alt="The SemNet processing chain" /></a> These processors are ordered sequentially to form a&nbsp;processing chain. Each processor has a&nbsp;specific role, it can be one of:</p>
+          <ul>
+            <li>object source,</li>
+            <li>object filter,</li>
+            <li>object sink.</li>
+          </ul>
+          <p>
+          This simple data processing framework is called the <em>Piped object processor</em> and provides the flexibility in adjustment of processing of the acquired data. It is meant to resemble the functioning of the unix pipe. All processors run in separate threads and exchange Java objects using concurrent buffers. The API of <abbr title="Piped object processor">POP</abbr> is fully documented and offers methods for composition and lifecycle management of processing chains and processors.
+          </p>
+          <p>There are four processors implemented as a&nbsp;part of SemNet: </p>
+          <ul>
+            <li>crawler,</li>
+            <li>scraper(s),</li>
+            <li>statement mapper,</li>
+            <li>Sesame writer.</li>
+          </ul>
+          <p>
+          <b>Crawler</b> is configured by means of <em>host descriptors</em> and <em>entity descriptors</em> and is responsible for automated collection of data from web pages, according to the defined rules.
+          </p>
+          <p>
+          <b>Scrapers</b> perform extraction of information from collected data and transformation to predicates. 
+          </p>
+          <p>
+          <b>Statement mapper</b> translates terms between the provisional vocabulary defined in the ontology-agnostic scrapers to the vocabulary of the network being built. 
+          </p>
+          <p>
+          <b>Sesame writer</b> is an adapter for the Sesame triple store.
+          </p>
+          <a name="platform"></a>
+          <h4 id="platform"><a class="paralink" href="#platform" title="Platform of SemNet">Platform</a></h4>
+          <p>
+          All modules of SemNet are written in Java, which ensures cross-platform operation. 
+          </p>
+          <p>
+          SemNet depends on a&nbsp;number of libraries. The most prominent dependency is the <a href="http://www.openrdf.org/" rel="external" title="OpenRDF.org, home of Sesame">Sesame</a> library. In addition to the Sesame being used as a&nbsp;triple store, the model of Sesame is used for runtime encapsulation and manipulation of data. 
+          </p>
+        </div>
+        <div id="footer">
+          smeral(at)mail.muni.cz<br />
+          Ron Šmeral<br />
+          2011
+        </div>
+    </body>
+</html>

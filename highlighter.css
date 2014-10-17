@@ -1,0 +1,102 @@
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.xml  {color: #006;}
+.xml a:link {color: #000060;}
+.xml a:hover {background-color: #f0f000;}
+.xml .imp {font-weight: bold; color: red;}
+.xml .es0 {color: #000099; font-weight: bold;}
+.xml .br0 {color: #66cc66;}
+.xml .sy0 {color: #66cc66;}
+.xml .st0 {color: #ff0000;}
+.xml .nu0 {color: #cc66cc;}
+.xml .sc-1 {color: #808080; font-style: italic;}
+.xml .sc0 {color: #00bbdd;}
+.xml .sc1 {color: #ddbb00;}
+.xml .sc2 {color: #339933;}
+.xml .sc3 {color: #009900;}
+.xml .re0 {color: #000066;}
+.xml .re1 {color: #000000; font-weight: bold;}
+.xml .re2 {color: #000000; font-weight: bold;}
+.xml span.xtra { display:block; }
+
+.code {
+  font-family: Consolas, Courier New, monospace;
+  background-color: #f0f0f0;
+  /*border: 1px solid #d0d0d0;*/
+  font-size: 10pt;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.code:hover {
+  overflow: auto;
+}
+
+.snippet {
+  padding: 15px 5px;
+  margin: 20px 20px;
+  overflow: hidden;
+  background: url(img/snippet-top.png) repeat-x left top, url(img/snippet-bottom.png) repeat-x left bottom;
+  background-color: #f0f0f0;
+  width: 90%;
+  border: none;
+}
+
+.long {
+  height: 100px;
+}
+
+.long.code:hover {
+  overflow: hidden;
+}
+
+.long.code:target:hover {
+  overflow: auto;
+}
+
+.long .code-fold.shrink {
+  display: none;
+}
+
+.long:target {
+  overflow: hidden;
+  height: 100%;
+  transition: height 0.5s;
+  -moz-transition: height 0.5s;
+  -webkit-transition: height 0.5s;
+}
+
+.long:target .code-fold.expand {
+  display: none;
+}
+
+.long:target .code-fold.shrink {
+  display: inline;
+}
+
+.code-fold {
+  font-family: Arial, sans-serif;
+  font-size: 8pt;
+  text-transform: uppercase;
+  color: #999;
+  float: right;
+  margin: 0 20px;
+}
+
+.code-fold.shrink {
+  margin-top: 5px;
+}
+
+.code-fold.expand {
+  margin-bottom: 5px;
+}
+
+#content a.code-fold {
+  border: none;
+}
+
+#content a.code-fold:hover {
+  color: #666;
+}

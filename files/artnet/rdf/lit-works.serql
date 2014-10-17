@@ -1,0 +1,12 @@
+CONSTRUCT DISTINCT *
+FROM    {work}  rdf:type    {typ};
+                rdfs:label  {lbl};
+                [dbk:author {author}];
+                [dbk:year {year}];
+                [dbk:partOf {book}];
+                [dbk:isbn {isbn}]
+WHERE typ in (wn20instances:synset-short_story-noun-1, wn20instances:synset-book-noun-1)
+ORDER BY typ, lbl, year
+USING NAMESPACE
+    wn20instances = <http://www.w3.org/2006/03/wn/wn20/instances/>,
+    dbk = <http://www.databazeknih.cz#>
