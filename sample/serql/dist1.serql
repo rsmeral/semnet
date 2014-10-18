@@ -1,0 +1,5 @@
+SELECT aname FROM
+	{u,v} csfd:acts_in {a} rdfs:label {aname},
+	{u} rdfs:label {"Bolek Polívka"},
+	{v} rdfs:label {"Miroslav Donutil"}
+USING NAMESPACE csfd = <http://www.csfd.cz#>

@@ -1,0 +1,9 @@
+SELECT actorname, moviename FROM 
+	{} 	csfd:acts_in {movie};
+		rdfs:label {"Jan Budaø"},
+	{actor} csfd:acts_in {movie};
+			rdfs:label {actorname},
+	{movie} rdfs:label {moviename}
+ORDER BY
+	moviename 
+USING NAMESPACE csfd = <http://www.csfd.cz#>

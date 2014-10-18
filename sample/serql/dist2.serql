@@ -1,0 +1,11 @@
+SELECT DISTINCT vn FROM
+	{u,v} csfd:acts_in {uv},
+	{v,w} csfd:acts_in {vw},
+	{v} rdfs:label {vn},
+	{uv} rdfs:label {uvn},
+	{vw} rdfs:label {vwn},
+	{u} rdfs:label {"Tomáš Hanák"},
+	{w} rdfs:label {"Tom Hanks"}
+WHERE
+	uv != vw 
+USING NAMESPACE csfd = <http://www.csfd.cz#>

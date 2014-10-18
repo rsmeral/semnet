@@ -1,0 +1,7 @@
+SELECT year, moviename FROM 
+	{actor} csfd:acts_in {} rdfs:label 	{moviename};
+							csfd:year	{year},
+	{actor} rdfs:label {"Bolek Polívka"}
+ORDER BY
+	year 
+USING NAMESPACE csfd = <http://www.csfd.cz#>

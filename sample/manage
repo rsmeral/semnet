@@ -1,0 +1,2 @@
+#!/bin/bash
+java -cp bin/*:scrapers/*:. xsmeral.semnet.crawler.HostManager "$@"

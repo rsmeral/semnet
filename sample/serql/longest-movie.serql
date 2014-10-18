@@ -1,0 +1,8 @@
+SELECT moviename FROM 
+	{} 	csfd:directed_by {person};
+		rdfs:label {moviename};
+		csfd:duration {dur},
+	{person} rdfs:label {"Michel Gondry"}
+ORDER BY dur DESC 
+LIMIT 1 
+USING NAMESPACE csfd = <http://www.csfd.cz#>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ivy-module version="2.0">
+    <info module="ArtNetScrapers" organisation="ArtNetScrapers" revision="1.0"/>
+    <configurations>
+        <conf name="compile"/>
+        <conf name="runtime"/>
+    </configurations>
+    <dependencies>
+        <dependency org="net.sourceforge.htmlcleaner" name="htmlcleaner" rev="2.2" conf="" />
+        <dependency org="org.openrdf.sesame" name="sesame-model" rev="2.4.2" conf="" />
+        <dependency org="info.aduna.commons" name="aduna-commons-io" rev="2.10.0" conf="" />
+    </dependencies>
+</ivy-module>

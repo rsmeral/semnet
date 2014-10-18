@@ -1,0 +1,9 @@
+SELECT moviename FROM 
+	{movie} csfd:year {year};
+			csfd:origin {origin};
+			csfd:genre {"Komedie"};
+			rdfs:label {moviename}
+WHERE 
+	year > 2009 AND year <= 2010 AND
+	origin IN ("Èesko", "Èeskoslovensko", "Èeská republika")
+USING NAMESPACE csfd = <http://www.csfd.cz#>

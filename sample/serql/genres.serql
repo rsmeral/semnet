@@ -1,0 +1,4 @@
+SELECT DISTINCT genre FROM 
+	{movie} csfd:directed_by {director} rdfs:label {"Steven Spielberg"},
+	{movie} csfd:genre {genre}
+USING NAMESPACE csfd = <http://www.csfd.cz#>

@@ -1,0 +1,2 @@
+#!/bin/bash
+java -cp bin/SemNet.jar:bin/lib/*:scrapers/*:. xsmeral.semnet.manager.JobRunner "$@"

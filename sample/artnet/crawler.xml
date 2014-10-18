@@ -1,0 +1,69 @@
+<crawler>
+  <dbLayer>
+    <driver>org.postgresql.Driver</driver>
+    <url>jdbc:postgresql://localhost:5432/postgres</url>
+    <user>artnet</user>
+    <password>artnet</password>
+    <schema>artnet</schema>
+    <autoCommit>true</autoCommit>
+  </dbLayer>
+  <threadsPerHost>2</threadsPerHost>
+  <globalCrawlDelayMinimum>500</globalCrawlDelayMinimum>
+  <policyIgnored>false</policyIgnored>
+  <fakeReferrer>true</fakeReferrer>
+  <hosts>
+    <host>
+      <baseURL>http://www.csfd.cz/</baseURL>
+      <name>CSFD.cz</name>
+      <charset>UTF-8</charset>
+      <crawlDelay>1500</crawlDelay>
+      <sourceFirst>true</sourceFirst>
+      <source>
+        <pattern update="1">/kino/?</pattern><!-- almost daily, new in cinemas -->
+        <pattern update="1">/tvurci/?</pattern><!-- daily birthdays -->
+        <pattern update="60">/tvurci/.+</pattern><!-- charts -->
+      </source>
+      <entities>
+        <entity weight="3">
+          <pattern update="365">/film/[^/]+/?</pattern>
+          <scraper>xsmeral.artnet.scraper.CSFDScraper$Film</scraper>
+        </entity>
+        <entity weight="2">
+          <pattern update="365">/tvurce/[^/]+/?</pattern>
+          <scraper>xsmeral.artnet.scraper.CSFDScraper$Creator</scraper>
+        </entity>
+      </entities>
+    </host>
+    <host>
+	  <!-- contains index, should do full crawl -->
+      <baseURL>http://www.databazeknih.cz/</baseURL>
+      <name>DatabazeKnih.cz</name>
+      <charset>UTF-8</charset>
+      <crawlDelay>1500</crawlDelay>
+      <sourceFirst>true</sourceFirst>
+      <source>
+        <pattern update="1">/</pattern>
+        <pattern update="1">/dnesni-autori/?</pattern><!-- daily new authors -->
+        <pattern update="1">/dnesni-knihy/?</pattern><!-- daily new books -->
+        <pattern update="1">/dnesni-povidky/?</pattern><!-- daily new short stories -->
+        <pattern update="365">/autori/?</pattern><!-- starting point of author index -->
+        <pattern update="365">/index.php\?(?=.*stranka=autori)(?=.*id=\d+).*</pattern><!-- author index page -->
+        <pattern update="365">/vydane-knihy/[^/]+</pattern><!-- books by an author -->
+      </source>
+      <entities>
+        <entity weight="1">
+          <pattern update="365">/knihy/[^/]+</pattern>
+          <scraper>xsmeral.artnet.scraper.DBKnih$Kniha</scraper>
+        </entity>
+        <entity weight="1">
+          <pattern update="365">/povidky/[^/]+/[^/]+</pattern>
+          <scraper>xsmeral.artnet.scraper.DBKnih$Povidka</scraper>
+        </entity>
+        <entity weight="1">
+          <pattern update="365">/autori/[^/]+</pattern>
+          <scraper>xsmeral.artnet.scraper.DBKnih$Autor</scraper>
+        </entity>
+      </entities>
+    </host>
+  </hosts>
+</crawler>

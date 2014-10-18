@@ -1,0 +1,4 @@
+SELECT actorname FROM 
+	{actor} csfd:acts_in {movie} rdfs:label {"Musíme si pomáhat"},
+	{actor} rdfs:label {actorname}
+USING NAMESPACE csfd = <http://www.csfd.cz#>
